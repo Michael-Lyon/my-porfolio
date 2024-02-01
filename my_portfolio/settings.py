@@ -16,6 +16,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import dj_database_url
+from dotenv import load_dotenv
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -27,7 +29,13 @@ SECRET_KEY = 'django-insecure-+@vjpp_v(30fmg(g4v9%s51k7*2)4+@%-ecu&q^&(tz7t+a0_(
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', "michael-asomugha.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ['https://michael-asomugha.up.railway.app', "http://localhost:8000"]
 
+DATABASE_URL = os.getenv("DB_URL")
+
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}
 
 # Application definition
 
