@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['localhost', "michael-asomugha.up.railway.app"]
 CSRF_TRUSTED_ORIGINS = ['https://michael-asomugha.up.railway.app', "http://localhost:8000"]
 
 DATABASE_URL = os.getenv("DB_URL")
-
 DATABASES = {
     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
